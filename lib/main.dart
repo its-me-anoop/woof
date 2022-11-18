@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:woof/view/home_page.dart';
+import 'package:woof/view/pages/home_page.dart';
 
 void main() {
   runApp(const Woof());
