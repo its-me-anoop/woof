@@ -1,21 +1,71 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:woof/view/pages/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:woof/components/life_cycle_event_handler.dart';
+import 'package:woof/landing/landing_page.dart';
+import 'package:woof/screens/mainscreen.dart';
+import 'package:woof/services/user_service.dart';
+import 'package:woof/utils/config.dart';
+import 'package:woof/utils/constants.dart';
+import 'package:woof/utils/providers.dart';
+import 'package:woof/view_models/theme_view_model.dart';
 
-void main() {
-  runApp(const Woof());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Config.initFirebase();
+  runApp(MyApp());
 }
 
-class Woof extends StatelessWidget {
-  const Woof({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-  // This widget is the root of your application.
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(
+      LifecycleEventHandler(
+        detachedCallBack: () => UserService().setUserStatus(false),
+        resumeCallBack: () => UserService().setUserStatus(true),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme:
-          ThemeData(primarySwatch: Colors.brown, brightness: Brightness.light),
-      home: const HomePage(),
+    return MultiProvider(
+      providers: providers,
+      child: Consumer<ThemeProvider>(
+        builder: (context, ThemeProvider notifier, Widget? child) {
+          return MaterialApp(
+            title: Constants.appName,
+            debugShowCheckedModeBanner: false,
+            theme: themeData(
+              notifier.dark ? Constants.darkTheme : Constants.lightTheme,
+            ),
+            home: StreamBuilder(
+              stream: FirebaseAuth.instance.authStateChanges(),
+              builder: ((BuildContext context, snapshot) {
+                if (snapshot.hasData) {
+                  return TabScreen();
+                } else
+                  return Landing();
+              }),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  ThemeData themeData(ThemeData theme) {
+    return theme.copyWith(
+      textTheme: GoogleFonts.nunitoTextTheme(
+        theme.textTheme,
+      ),
     );
   }
 }
