@@ -1,16 +1,25 @@
 # woof
 
-A new Flutter project.
+A social network for dog lovers.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Custom photo feed
+* Post photo posts from camera or gallery
+  * Like posts
+  * Comment on posts
+    * View all comments on a post
+* Search for users
+* Realtime Messaging and Sending images
+* Deleting Posts
+* Profile Pages
+  * Change profile picture
+  * Change username
+  * Follow / Unfollow Users
+  * Change image view from grid layout to feed layout
+  * Add your own bio
+* Notifications Feed showing recent likes / comments of your posts + new followers
+* Swipe to delete notification
+* Dark Mode Support
+* Stories/Status
+* Used Provider to manage state

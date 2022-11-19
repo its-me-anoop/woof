@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "174251723291",
+    "project_id": "woof-flutterly",
+    "storage_bucket": "woof-flutterly.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174251723291:android:4ddef028c9d48e7a68c6be",
+        "android_client_info": {
+          "package_name": "co.uk.flutterly.woof"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174251723291-s30gn122hm0247h1778d51gd0rtn7f29.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.uk.flutterly.woof",
+            "certificate_hash": "e4f41e6b237dfc229f2ece7d1f51c5d21b86b112"
+          }
+        },
+        {
+          "client_id": "174251723291-fo49e4caamcifng1jb8r4lmn5ttm5n8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABqsQIMUcLmAHDIJOMR6UmgjOxE1RJURw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174251723291-fo49e4caamcifng1jb8r4lmn5ttm5n8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
